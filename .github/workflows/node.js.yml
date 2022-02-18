@@ -38,3 +38,11 @@ jobs:
         start: npm start
         wait-on: 'http://localhost:3000'
         config: baseUrl=http://localhost:3000
+
+    - name: Run Cypress again
+      uses: cypress-io/github-action@v2
+      with:
+        build: npm run build
+        start: npm run int-test
+        wait-on: 'http://localhost:3000'
+        config: baseUrl=http://localhost:3000
