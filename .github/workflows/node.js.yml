@@ -30,4 +30,10 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
-    - run: npm run int-test
+    # - run: npm run int-test
+    -name: Run Cypress
+     uses: cypress-io/github-action@v1
+     with:
+        start: npm start
+        wait-on: 'http://localhost:3000'
+        config: baseUrl=https://localhost:3000
